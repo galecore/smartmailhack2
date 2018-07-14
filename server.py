@@ -31,10 +31,21 @@ def filter_letters():
     letters = list(filter(lambda x: query.lower() in x["company"].lower(), letters))
     return jsonify(letters)
 
+def cooldatafilter(value):
+    n_t_m = {"01":"января", "02":"февраля", "03":"марта",
+                       "04":"апреля", "05":"мая", "06":"июня", "07":"июля", "08":"августа", 
+                       "09":"сентября", "10":"октября", "11":"ноября", "12":"декабря"}
+
+    day, month, year = value.split('.')
+    date = "{} {}".format(int(day), n_t_m[month])
+    return date
 
 @app.route("/data/<filename>")
 def upload(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+# environment.filters['datetimeformat'] = datetimeformat
+
+app.jinja_env.filters["cooldatafilter"] = cooldatafilter
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8000)

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Title</title>
+    <title>mailDeal</title>
     <!-- Bootstrap core CSS -->
     <!-- Latest compiled and minified CSS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -44,7 +44,7 @@
         <div class="row">
         {% endif %}
         <div class="col-sm-6">
-        <div class="card" >
+        <div class="card" id="card{{loop.index}}">
           <div class="card-body">
             <div style="background-image: url({{item.picture}}); width:50px; height:50px"></div>
             <!-- <img src={{item.picture}} >  -->
@@ -53,7 +53,7 @@
               <span class="badge badge-danger">{{item.data.discount}}</span>
             </h5>
             <p>
-            <h6>с {{item.data.from}} до {{item.data.to}}</h6>
+            <h6>с {{item.data.from|cooldatafilter}} по {{item.data.to|cooldatafilter}}</h6>
             <hr>
             <p class="card-text">{{item.subject}} </p>
             <p class="card-text">{{item.data.text}}</p>
