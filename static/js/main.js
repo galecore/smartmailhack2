@@ -1,5 +1,39 @@
 // DOM element where the Timeline will be attached
-$.getJSON( "data/letters.json", function( data ) {
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+var query = getUrlParameter('query');
+if (query === undefined){
+  query='';
+}
+console.log(query);
+$.getJSON( "filter?query="+query, function( data ) {
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 
 var container = document.getElementById('vis');
 
@@ -9,20 +43,12 @@ console.log(data);
 // Create a DataSet (allows two way data-binding)
 
 
-var items = new vis.DataSet([
-  {id: 1, content: 'item 1', start: '2018-04-20'},
-  {id: 2, content: 'item 2', start: '2018-04-15', end: '2018-04-18', style: 'border-radius: 10px; color: pink'},
-  {id: 3, content: 'item 3', start: '2018-04-16', end: '2018-04-17'},
-  {id: 4, content: 'item 4', start: '2018-04-16', end: '2018-04-19'},
-  {id: 5, content: 'item 5', start: '2018-04-25'},
-  {id: 6, content: 'item 6', start: '2018-04-27'}
-]);
 
 
 // Configuration for the Timeline
 var options = {
   template: function (item, element, data) {
-  console.log(data);
+
   return '' + data.content   + '  <span class="badge badge-danger"> '+ data.discount  + '</snap>'+'';
 },
 width: '100%',
@@ -30,7 +56,8 @@ height: '250px',
 locale: 'ru',
 min: '2018-01-01',
 max:'2018-12-30',
-timeAxis :  { scale: 'week', step:1 }
+
+
 };
 
 var items2 = [];
@@ -53,5 +80,12 @@ for (let i of data){
 var items3=new vis.DataSet(items2);
 console.log(items2);
 var timeline = new vis.Timeline(container, items3, options);
+function onSelect (properties) {
+  $("html, body").animate({ scrollTop: $('#card'+properties.items).offset().top-250 }, 1000); 
+}
+
+// add event listener
+timeline.on('select', onSelect);
+
 
 });
