@@ -29,41 +29,33 @@
       <div id=vis></div>
       <br>
       <p>
-      <div class="row">
-<!--         <div class="col-sm-6">
-          <div class="card" >
-            <div class="card-body">
-              <h5 class="card-title"><img src="https://www.verybank.ru/static/banks/logo/min/000/53ed9ac869f2216b7df49fe1464b066a.png"> скидка на iphone 99% <span class="badge badge-danger">99%</span></h5>
-              <hr>
-              <p class="card-text">скидка на iphone 99% в мтс c 08.11.2018 по 15.11.2018
-              <p>
-              <hr>
-              <a href="#" class="btn btn-primary float-right">Открыть письмо</a>
-            </div>
-          </div>
-        </div> -->
         {% for item in letters %}
+        {% if loop.index % 2 == 1 %}
+        <div class="row">
+        {% endif %}
         <div class="col-sm-6">
         <div class="card" >
           <div class="card-body">
+            <img src={{item.picture}} width=50px height=50px> 
             <h5 class="card-title">
-              <img src={{item.picture}}> {{item.company}} 
+             {{item.company}}
               <span class="badge badge-danger">{{item.data.discount}}</span>
             </h5>
             <p>
             <h6>с {{item.data.from}} до {{item.data.to}}</h6>
             <hr>
-            <p class="card-text">{{item.subject}} |||||| {{item.data.text}} </p>
+            <p class="card-text">{{item.subject}} </p>
+            <p class="card-text">{{item.data.text}}</p>
             <hr>
             <a href="{{item.link}}" class="btn btn-primary float-right">Открыть письмо</a>
           </div>
         </div>
+        {% if loop.index % 2 == 0 %}
         </div>
+        {% endif %}
+        <br><br>
       </div>
       {% endfor %}
-      </div>
-      </div>
-      </div>
     </main>
     <!-- Bootstrap core JavaScript
       ================================================== -->
