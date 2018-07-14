@@ -1,0 +1,75 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Title</title>
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
+  </head>
+  <body>
+    <main role="main" class="container" id='main'>
+      <div id=vis></div>
+      <br>
+      <p>
+      <div class="row">
+<!--         <div class="col-sm-6">
+          <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title"><img src="https://www.verybank.ru/static/banks/logo/min/000/53ed9ac869f2216b7df49fe1464b066a.png"> скидка на iphone 99% <span class="badge badge-danger">99%</span></h5>
+              <hr>
+              <p class="card-text">скидка на iphone 99% в мтс c 08.11.2018 по 15.11.2018
+              <p>
+              <hr>
+              <a href="#" class="btn btn-primary float-right">Открыть письмо</a>
+            </div>
+          </div>
+        </div> -->
+        {% for item in letters %}
+        <div class="col-sm-6">
+        <div class="card" >
+          <div class="card-body">
+            <h5 class="card-title">
+              <img src={{item.picture}}> {{item.company}} 
+              <span class="badge badge-danger">{{item.data.discount}}</span>
+            </h5>
+            <p>
+            <h6>с {{item.data.from}} до {{item.data.to}}</h6>
+            <hr>
+            <p class="card-text">{{item.subject}} |||||| {{item.data.text}} </p>
+            <hr>
+            <a href="{{item.link}}" class="btn btn-primary float-right">Открыть письмо</a>
+          </div>
+        </div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+      </div>
+      </div>
+    </main>
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src={{ url_for('static', filename='js/cards.js') }}></script>
+    <script src={{ url_for('static', filename='js/main.js') }}></script>
+  </body>
+</html>
+
