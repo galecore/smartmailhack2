@@ -1,7 +1,10 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, url_for
 import json
 
 app = Flask(__name__)
+UPLOAD_FOLDER = 'mailparser'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route("/")
 def hello():
@@ -12,7 +15,7 @@ def hello():
 
 @app.route("/data/<filename>")
 def upload(filename):
-    return send_from_directory("/mailparser", filename)
-    
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8000)
