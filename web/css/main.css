@@ -1,4 +1,20 @@
 #vis{
   height: 20%;
-  
+
+}
+
+#content{
+
+  height: 80%;
+}
+.col-sm-6{
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
