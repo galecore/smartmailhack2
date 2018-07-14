@@ -26,8 +26,10 @@ def get_all_letters_by_id(ids):
         from_obj = response["replies"]["to"][0]
         subject = response["subject"]
         body = response["body"]
-        letters.append({"from":from_obj, "subject":subject, "body":body, "id":id})
+        date = response["date"]
+        letters.append({"from":from_obj, "subject":subject, "body":body, "id":id, "date":date})
     return letters
+
 
 ids = get_all_letters_by_query("Скидка")
 letters = get_all_letters_by_id(ids)
