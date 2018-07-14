@@ -10,7 +10,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def hello():
     letters = list()
     with open("mailparser/letters.json", 'r') as letters_file:
-        letters = json.load(letters_file)
+        letters = sorted(json.load(letters_file), key=lambda x: -int(x["data"]["discount"][:-1]))
     return render_template("index.html", letters=letters)
 
 @app.route("/search")
