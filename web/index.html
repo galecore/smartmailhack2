@@ -1,19 +1,90 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <title>Timeline | Basic demo</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <style type="text/css">
-    body, html {
-      font-family: sans-serif;
-    }
-  </style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<div id="vis"></div>
-<script src="js/main.js"></script>
-</body>
+    <title>Fixed top navbar example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<link rel="stylesheet" href="../../css/main.css">
+  </head>
+
+  <body>
+
+
+
+    <main role="main" class="container" id='main'>
+      <div id=vis></div>
+
+<br><p>
+
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+
+    <div class="card" >
+<div class="card-body">
+  <h5 class="card-title"><img src="https://www.verybank.ru/static/banks/logo/min/000/53ed9ac869f2216b7df49fe1464b066a.png"> скидка на iphone 99% <span class="badge badge-danger">99%</span></h5>
+  <hr>
+  <p class="card-text">скидка на iphone 99% в мтс c 08.11.2018 по 15.11.2018
+  <p>
+  <hr>
+  <a href="#" class="btn btn-primary float-right">Открыть письмо</a>
+</div>
+</div>
+</div>
+<div v-for="item in sales" class="col-sm-6">
+
+  <div class="card" >
+<div class="card-body">
+<h5 class="card-title"><img v-bind:src='item.iurl'> {{item.text}} <span class="badge badge-danger">{{item.sale}}</span></h5>
+<p><h6>с {{item.start}} до {{item.stop}}</h6>
+  <hr>
+<p class="card-text">{{item.discript}} с {{item.start}} до {{item.stop}}
+  <p>
+  <hr>
+  <a href="#" class="btn btn-primary float-right">Открыть письмо</a>
+</div>
+</div>
+</div>
+
+  </div>
+
+
+</div>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    <script src="../../js/cards.js"></script>
+      <script src="../../js/main.js"></script>
+  </body>
 </html>
