@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +10,7 @@
     <!-- Latest compiled and minified CSS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Popper JS -->
@@ -25,6 +24,16 @@
     <link rel="stylesheet" href={{ url_for('static', filename='css/style.css') }}>
   </head>
   <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <div class="navbar-header navbar-left">
+          <a class="navbar-brand" href="#">ToDoTeam</a>
+        </div>
+      <form class="form-inline float-right" action="/search">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+    </nav>
     <main role="main" class="container" id='main'>
       <div id=vis></div>
       <br>
@@ -36,7 +45,8 @@
         <div class="col-sm-6">
         <div class="card" >
           <div class="card-body">
-            <img src={{item.picture}} width=50px height=50px> 
+            <div style="background-image: url({{item.picture}}); width:50px; height:50px"></div>
+            <!-- <img src={{item.picture}} >  -->
             <h5 class="card-title">
              {{item.company}}
               <span class="badge badge-danger">{{item.data.discount}}</span>
