@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, url_for, request
+from flask import Flask, render_template, send_from_directory, url_for, request, jsonify
 import json
 
 app = Flask(__name__)
@@ -18,9 +18,19 @@ def search():
     query = request.args.get('query', '', type=str)
     letters = list()
     with open("mailparser/letters.json", 'r') as letters_file:
-        letters = json.load(letters_file)
+        letters = sorted(json.load(letters_file), key=lambda x: -int(x["data"]["discount"][:-1]))
     letters = list(filter(lambda x: query.lower() in x["company"].lower(), letters))
     return render_template("index.html", letters=letters)
+
+@app.route("/filter")
+def filter_letters():
+    query = request.args.get('query', '', type=str)
+    letters = list()
+    with open("mailparser/letters.json", 'r') as letters_file:
+        letters = sorted(json.load(letters_file), key=lambda x: -int(x["data"]["discount"][:-1]))
+    letters = list(filter(lambda x: query.lower() in x["company"].lower(), letters))
+    return jsonify(letters)
+
 
 @app.route("/data/<filename>")
 def upload(filename):

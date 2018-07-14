@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container-fluid">
         <div class="navbar-header navbar-left">
-          <a class="navbar-brand" href="#">ToDoTeam</a>
+          <a class="navbar-brand" href="/">ToDoTeam</a>
         </div>
       <form class="form-inline float-right" action="/search" method="GET">
         <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search">
@@ -70,6 +70,9 @@
         <br><br>
       </div>
       {% endfor %}
+      {% if letters|count == 0 %}
+        <p>Поиск не дал результатов. Попробуйте другой запрос! </p>
+      {% endif %}
     </main>
     <!-- Bootstrap core JavaScript
       ================================================== -->
