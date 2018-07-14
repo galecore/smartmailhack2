@@ -18,6 +18,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
@@ -57,6 +58,9 @@
             <p class="card-text">{{item.subject}} </p>
             <p class="card-text">{{item.data.text}}</p>
             <hr>
+            {% for label in item.labels %}
+            <span class="badge badge-warning">{{label}}</span>
+            {% endfor %}
             <a href="{{item.link}}" class="btn btn-primary float-right">Открыть письмо</a>
           </div>
         </div>
@@ -74,4 +78,3 @@
     <script src={{ url_for('static', filename='js/main.js') }}></script>
   </body>
 </html>
-
