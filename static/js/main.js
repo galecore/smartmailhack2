@@ -56,6 +56,8 @@ height: '250px',
 locale: 'ru',
 min: '2018-01-01',
 max:'2018-12-30',
+zoomMax: 3500000000,
+zoomMin:1000000000
 
 
 };
@@ -81,11 +83,12 @@ var items3=new vis.DataSet(items2);
 console.log(items2);
 var timeline = new vis.Timeline(container, items3, options);
 function onSelect (properties) {
-  $("html, body").animate({ scrollTop: $('#card'+properties.items).offset().top-250 }, 1000); 
+  $("html, body").animate({ scrollTop: $('#card'+properties.items).offset().top-250 }, 1000);
 }
 
 // add event listener
 timeline.on('select', onSelect);
-
+tmp= new Date();
+timeline.moveTo(tmp.toISOString());
 
 });

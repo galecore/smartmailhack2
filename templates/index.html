@@ -28,15 +28,16 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container-fluid">
         <div class="navbar-header navbar-left">
-          <a class="navbar-brand" href="/">ToDoTeam</a>
+          <a class="navbar-brand" href="/">MailDeal</a>
         </div>
       <form class="form-inline float-right" action="/search" method="GET">
         <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search">
         <button class="btn btn-success" type="submit">Search</button>
       </form>
     </nav>
+    <div id=vis></div>
     <main role="main" class="container" id='main'>
-      <div id=vis></div>
+
       <br>
       <p>
         {% for item in letters %}

@@ -6,6 +6,17 @@ z-index: 4;
 background-color: RGB(255,255,255);
 }
 
+  .vis-item-content {
+
+
+  }
+
+.vis-item{
+
+  border-radius: 10px;
+}
+
+
 #content{
   width: 100%;
   height: 80%;
