@@ -49,9 +49,8 @@
         <div class="col-sm-6">
         <div class="card" id="card{{loop.index}}">
           <div class="card-body">
-            <div style="background-image: url({{item.picture}}); width:50px; height:50px; display:inline"></div>
             <h5 class="card-title">
-             {{item.company}}
+             <div style="background-image: url({{item.picture}}); width:50px; height:50px; display:inline-block"></div> {{item.company}}
               <span class="badge badge-danger">{{item.data.discount}}</span>
             </h5>
             <p>
