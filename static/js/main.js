@@ -49,7 +49,7 @@ console.log(data);
 var options = {
   template: function (item, element, data) {
 
-  return '' + data.content   + '  <span class="badge badge-danger"> '+ data.discount  + '</snap>'+'';
+return '<div style="background-image: url('+data.picture+'); width:25px; height:25px;background-size: cover; border-radius: 12px;position: relative;top: 5px;margin-right:5px;display:inline-block"></div>' + data.content   + '  <span class="badge badge-danger"> '+ data.discount  + '</snap>'+'';
 },
 width: '100%',
 height: '250px',
@@ -75,7 +75,7 @@ for (let i of data){
   tmp3[2]=tmp3[0];
   tmp3[0]=tmp4;
 
-  items2.push({start: tmp2.join('-') , id: tmp, end: tmp3.join('-') , content: i.company, discount: i.data.discount  });
+  items2.push({start: tmp2.join('-') , id: tmp, end: tmp3.join('-') , content: i.company, discount: i.data.discount, picture: i.picture  });
   tmp++;
 }
 
