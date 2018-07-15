@@ -28,7 +28,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <div class="container-fluid">
         <div class="navbar-header navbar-left">
-          <a class="navbar-brand" href="/">MailDeal</a>
+         <a class="navbar-brand" href="/">mailDeal</a>
         </div>
       <form class="form-inline float-right" action="/search" method="GET">
         <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search">
@@ -37,9 +37,9 @@
     </nav>
     <div id=vis></div>
     <main role="main" class="container" id='main'>
-
       <br>
       <p>
+        
         {% for item in letters %}
         {% if loop.index % 2 == 1 %}
         <div class="row">
@@ -47,8 +47,7 @@
         <div class="col-sm-6">
         <div class="card" id="card{{loop.index}}">
           <div class="card-body">
-            <div style="background-image: url({{item.picture}}); width:50px; height:50px"></div>
-            <!-- <img src={{item.picture}} >  -->
+            <div style="background-image: url({{item.picture}}); width:50px; height:50px; display:inline"></div>
             <h5 class="card-title">
              {{item.company}}
               <span class="badge badge-danger">{{item.data.discount}}</span>
@@ -74,6 +73,7 @@
       {% if letters|count == 0 %}
         <p>Поиск не дал результатов. Попробуйте другой запрос! </p>
       {% endif %}
+
     </main>
     <!-- Bootstrap core JavaScript
       ================================================== -->

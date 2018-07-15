@@ -1,11 +1,13 @@
 #vis{
   margin-top: 25px;
   position: sticky;
-top: 0;
-z-index: 4;
-background-color: RGB(255,255,255);
+  top: 0;
+  z-index: 4;
+  width: 100%+40px;
+  background-color: RGB(255,255,255);
 }
 
+/*<<<<<<< Updated upstream*/
   .vis-item-content {
 
 
@@ -15,7 +17,9 @@ background-color: RGB(255,255,255);
 
   border-radius: 10px;
 }
-
+/*
+=======
+>>>>>>> Stashed changes*/
 
 #content{
   width: 100%;
